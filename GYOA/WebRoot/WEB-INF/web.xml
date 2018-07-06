@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>GYOA</display-name>
+  
+  <!-- 过滤器是在请求访问的时候执行的 -->
+  <!-- 监听器是在每次监听的时候执行的 -->
+ 
+  
+  <!-- 配置spring的监听器 -->
+  <listener>
+  	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  
+  
+  <!-- 初始化spring容器对象 -->
+  <context-param>
+  	<param-name>contextConfigLocation</param-name>
+  	<param-value>classpath:applicationContext*.xml</param-value>
+  </context-param>
+  
+  <!-- 初始化容器： 用于初始化数据的监听器： 因为这个监听器用到spring的监听，所以要放在后面 -->
+  <listener>
+  	<listener-class>cn.gy.oa.listener.InitServletContextListener</listener-class>
+  </listener>
+  
+  <filter>
+  	<filter-name>CharacterFilter</filter-name>
+  	<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+  	<init-param>
+  		<param-name>encoding</param-name>
+  		<param-value>UTF-8</param-value>
+  	</init-param>
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>CharacterFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+   <!-- session的懒加载异常还是放到web中进行处理吧: -->
+   <!-- 注意：要放到过滤器之前 -->
+  <filter>
+  	<filter-name>SpringOpenSessionInViewFilter</filter-name>
+  	<filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
+  	<init-param>
+  		<param-name>sessionFactory</param-name>
+  		<param-value>sessionFactory</param-value>
+  	</init-param>
+  	<!-- <init-param>
+  		<param-name>singleSession</param-name>
+  		<param-value>true</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>flushMode </param-name>
+  		<param-value>AUTO</param-value>
+  	</init-param> -->
+  </filter>
+  <filter-mapping>
+  	<filter-name>SpringOpenSessionInViewFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  
+  <!-- 配置struts2的核心过滤器具 -->
+  <filter>
+  	<filter-name>struts2</filter-name>
+  	<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+  </filter> 
+  <filter-mapping>
+  <filter-name>struts2</filter-name>
+  <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  
+<!--
+指定org.springframework.orm.hibernate3.LocalSessionFactoryBean在spring配置文件中的名称,默认值为sessionFactory
+     如果LocalSessionFactoryBean在spring中的名称不是sessionFactory,该参数一定要指定,否则会出现找不到sessionFactory的例外
+-->
+
+<!-- 拦截器： 没有权限时候就直接返回 -->
+<!-- 对每个请求都进行权限验证 -->
+  
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

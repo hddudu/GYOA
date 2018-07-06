@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping package="cn.gy.oa.domain">
+	<class name="Forum" table="gy_forum">
+		<id name="id">
+			<generator class="native"/>
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="name" length="100"></column>
+		</property>
+		<property name="description" type="java.lang.String">
+			<column name="description" length="500"></column>
+		</property>
+		<property name="position" type="java.lang.Integer">
+			<column name="position" length="10"></column>
+		</property>
+		<property name="crtDate"  type="java.sql.Timestamp">
+			<column name="crtDate"></column>
+		</property>
+		<property name="updDate" type="java.sql.Timestamp">
+			<column name="updDate"></column>
+		</property> 
+		<property name="topicCount" type="java.lang.Long">
+			<column name="topicCount" length="20"></column>
+		</property> 
+		<property name="articleCount" type="java.lang.Long">
+			<column name="articleCount" length="20"></column>
+		</property> 
+	</class>
+</hibernate-mapping>

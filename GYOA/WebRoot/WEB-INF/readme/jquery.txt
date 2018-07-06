@@ -1,0 +1,16 @@
+1：
+jquery： 返回的都是JQuery对象
+查找上一级： parent(表达式过滤expression);
+查找下一级: children(expr);很多个孩子 ========= next();
+查找兄弟元素:  siblings(expr过滤);
+
+查找所有上级: （包括父亲、祖父） parents(expr过滤);直系亲属 
+查找所有后辈: find(expr);查找后代元素
+查找上一个(兄)元素: prev(expr);
+查找下一个(弟)元素: next(expr);
+
+2:onchange==>改变了内容并失去了焦点才生效
+
+
+
+

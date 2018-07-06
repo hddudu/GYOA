@@ -1,0 +1,235 @@
+echo off
+rem 执行安装程序
+java -classpath WebRoot/WEB-INF/classes cn.hd.oa.Installer
+
+rem 暂停
+pause
+
+//		Session session = null;
+//		session.save(user);
+//		打包后应该是自动运行
+
+c:> java -classpath C:\java\myclasses.jar
+
+C:> java -classpath C:\java\DemoClasses HelloWorld
+
+①执行类全名（前提在这个对应的classes文件的目录下）
+②
+F:\myFrame\GYOA\WebRoot\WEB-INF\classes>cd ..
+
+F:\myFrame\GYOA\WebRoot\WEB-INF>java cn.gy.oa.installer.Installer
+错误: 找不到或无法加载主类 cn.gy.oa.installer.Installer
+
+F:\myFrame\GYOA\WebRoot\WEB-INF>java -classpath classes/ cn.gy.oa.installer.Installer
+
+需要指定对应的classpath
+③
+alt + shift + A ==》选择一块区域进行修改==》同UE的列编辑
+
+③
+正在执行安装...
+真实类:Department
+真实类:Role
+真实类:User
+真实类:Department
+真实类:Role
+真实类:User
+e10adc3949ba59abbe56e057f20f883e
+Hibernate: 
+    insert 
+    into
+        gy_user
+        (login_name, password, real_name, gender, email, phone_number, user_desc, status, crt_date, upd_date, departmentId) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        gy_user
+        (login_name, password, real_name, gender, email, phone_number, user_desc, status, crt_date, upd_date, departmentId) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        gy_privilege
+        (privUrl, privName, privIcon, crtDate, updDate, parentId) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        gy_privilege
+        (privUrl, privName, privIcon, crtDate, updDate, parentId) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        gy_privilege
+        (privUrl, privName, privIcon, crtDate, updDate, parentId) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        gy_privilege
+        (privUrl, privName, privIcon, crtDate, updDate, parentId) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        gy_privilege
+        (privUrl, privName, privIcon, crtDate, updDate, parentId) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        gy_privilege
+        (privUrl, privName, privIcon, crtDate, updDate, parentId) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        gy_privilege
+        (privUrl, privName, privIcon, crtDate, updDate, parentId) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        gy_privilege
+        (privUrl, privName, privIcon, crtDate, updDate, parentId) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        gy_privilege
+        (privUrl, privName, privIcon, crtDate, updDate, parentId) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        gy_privilege
+        (privUrl, privName, privIcon, crtDate, updDate, parentId) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        gy_privilege
+        (privUrl, privName, privIcon, crtDate, updDate, parentId) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        gy_privilege
+        (privUrl, privName, privIcon, crtDate, updDate, parentId) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        gy_privilege
+        (privUrl, privName, privIcon, crtDate, updDate, parentId) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        gy_privilege
+        (privUrl, privName, privIcon, crtDate, updDate, parentId) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        gy_privilege
+        (privUrl, privName, privIcon, crtDate, updDate, parentId) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        gy_privilege
+        (privUrl, privName, privIcon, crtDate, updDate, parentId) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        gy_privilege
+        (privUrl, privName, privIcon, crtDate, updDate, parentId) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        gy_privilege
+        (privUrl, privName, privIcon, crtDate, updDate, parentId) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        gy_privilege
+        (privUrl, privName, privIcon, crtDate, updDate, parentId) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        gy_privilege
+        (privUrl, privName, privIcon, crtDate, updDate, parentId) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        gy_privilege
+        (privUrl, privName, privIcon, crtDate, updDate, parentId) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        gy_privilege
+        (privUrl, privName, privIcon, crtDate, updDate, parentId) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        gy_privilege
+        (privUrl, privName, privIcon, crtDate, updDate, parentId) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        gy_privilege
+        (privUrl, privName, privIcon, crtDate, updDate, parentId) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        gy_privilege
+        (privUrl, privName, privIcon, crtDate, updDate, parentId) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        gy_privilege
+        (privUrl, privName, privIcon, crtDate, updDate, parentId) 
+    values
+        (?, ?, ?, ?, ?, ?)
+安装完毕
+

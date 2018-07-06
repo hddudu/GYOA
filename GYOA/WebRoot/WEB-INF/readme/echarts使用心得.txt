@@ -1,0 +1,114 @@
+1:严格按顺序加载：
+先准备盒子，然后才能往里面填数据==》正常显示图表
+
+否则==》无任何显示
+=======================================================
+目标图展示:
+	①柱状图 ： bar
+	②饼状图 ： pie
+		处在一个{}下面
+		type: 'pie',
+        roseType: 'true',
+	③趋势图：
+	④能力地图：
+	⑤折线图： line
+=======================================================
+title （标题）、tooltip（气泡提示框）、legend（图例）、toolbox（辅助工具箱）、calculable（固定是否可计算）、
+xAxis（X轴）、yAxis（Y轴）、series（数据系列）大体的设置项有这些，
+其实其中好多东西都是为了生成的图表更好看而添加的设置项，所以大家可以按照自己的所需来进行添加，
+这点我就不多说了，毕竟每个人的审美观不一样。
+
+title：标题可分为正标题和副标题
+
+tooltip：气泡提示框说白了就是鼠标放在对应位置动态出来的一个提示框
+
+legend：图例，每一项代表一个系列的name，默认布局到达边缘会自动分行这里面需要设置的一项是data，
+这里面的data会根据该值索引series中同名系列所用的图表类型和itemStyle，如果索引不到，该item将默认为没启用状态
+
+toolbox：这里面要设置的是显示策略 和具体的显示信息
+
+calculable：让图表一些值能够可计算
+
+xAxis：X轴显示的数据
+
+yAxis：Y轴显示的数据
+
+series：这就是echarts的核心了，是各项数据的详细，对应索引的是lengend
+
+2:
+
+myChart.setOption({
+    series : [
+        {
+            name: '访问来源',
+            type: 'pie',
+            radius: '55%',
+            data:[
+                {value:235, name:'视频广告'},
+                {value:274, name:'联盟广告'},
+                {value:310, name:'邮件营销'},
+                {value:335, name:'直接访问'},
+                {value:400, name:'搜索引擎'}
+            ]
+        }
+    ]
+})
+ series[i]-pie.radius Array
+[ default: [0, '75%'] ]
+
+饼图的半径，数组的第一项是内半径，第二项是外半径。
+
+支持设置成百分比，相对于容器高宽中较小的一项的一半。
+
+可以将内半径设大显示成圆环图（Donut chart）。
+
+3：
+var myChart = echarts.init(document.getElementById("main"));
+		var option={
+            backgroundColor: '#2c343c',
+            textStyle: {
+                        color: 'rgba(255, 255, 255, 0.3)'
+                    },
+            series : [
+                {
+                    name: '访问来源',
+                    type: 'pie',
+                    radius: '55%',
+                    data:[
+                        {value:400, name:'搜索引擎'},
+                        {value:335, name:'直接访问'},
+                        {value:310, name:'邮件营销'},
+                        {value:274, name:'联盟广告'},
+                        {value:235, name:'视频广告'}
+                    ],
+                    roseType: 'angle',
+
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 200,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    },
+                    label: {
+                        normal: {
+                            textStyle: {
+                                color: 'rgba(255, 255, 255, 0.3)'
+                            }
+                        }
+                    },
+                    labelLine: {
+                        normal: {
+                            lineStyle: {
+                                color: 'rgba(255, 255, 255, 0.3)'
+                            }
+                        }
+                    }
+
+                }
+            ]
+        }
+        
+        //使用刚指定的配置项和数据显示图像
+        myChart.setOption(option);
+     
+        

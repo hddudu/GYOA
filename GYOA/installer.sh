@@ -1,0 +1,1 @@
+java -classpath .:WebRoot/WEB-INF/classes cn.gy.oa.installer.Installer

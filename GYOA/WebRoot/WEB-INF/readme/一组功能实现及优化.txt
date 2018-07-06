@@ -1,0 +1,130 @@
+一：做Action相关的准备
+Action、Jsp、配置
+
+	1:创建Action extends BaseAction
+	
+	2:定义出Action当中的方法、要写出方法名、作用、返回值
+	
+	3:创建出所用的JSP页面
+	
+	4:配置Action
+		在MyAction上写注解： 
+			@Controller
+			@Scope("prototype")
+		在Struts.xml中配置这个Action所用到的result
+		
+		
+	
+二：做Service相关的准备
+接口、实现类、配置
+	
+	1：创建接口MyService extends BaseDao
+	
+	2：创建实现类 MyServiceImpl extends BaseDaoImpl
+	
+	3：配置：在MyServiceImpl 上写注解 @Service
+	
+	4:声明：
+		@Resource protected MyService myService;
+
+三：填空
+Action方法、Service方法、JSP页面
+	1：Action方法
+	
+	2：新增的Service方法
+	
+	3：JSP页面的内容
+	
+	目前DAO都是公共的方法
+	
+	===============
+	||||
+	||||
+View 
+Service + DAO
+
+
+View
+Service(可以直接使用session做增删改查)
+
+=====================
+优化一：合并DAO和Service
+优化二：
+Action中很多重复代码
+
+在父类中使用protected==》保证子类可以使用这个公共资源
+
+=======================
+EL表达式 ： JSP中就行:
+	${expression}
+OGNL表达式==》Struts2中才行（Struts2的自定义标签中使用、struts.xml中可以使用）
+	Struts2的自定义标签： %{表达式}
+	struts2的struts.xml：${表达式}
+	
+	语法：
+		%{name}
+		%{#name}
+		%{#user.name}
+		
+		#{'k' : 'v', 'k2' : 'v2'}
+		{'e1','e2'}
+	<%-- 							<s:radio list="#{'男':'男','女':'女' }"></s:radio> --%>
+							<!-- 构建map : #{'男':'男','女':'女' }-->	
+
+
+=======================
+表单回显==》参数回显==》相应的属性有值就行==》传传参数到属性中==》在model传参数(或者是在url请求中传参数)
+modelDriven是什么？是用于封装传输参数的对象==》放在栈顶
+
+=======================
+部门管理中的一些小功能
+①从列表到添加页面时，应默认选中原列表的上级部门
+
+②增加“返回上一级”功能
+
+③添加、修改、删除成功后还转到原列表页面，而不是顶级列表页面
+
+=======================
+树状工具列表：
+①递归做法：
+	二叉树的遍历：
+	
+②
+使用时，只使用一个根节点，表示以某节点为定点的树；
+
+一棵树：
+①一个顶点
+②0或者多个子树
+
+
+=======================
+spring课程体系：
+①课程体系梳理
+②IOC（控制反转）
+③DI（依赖注入）
+	通过构造器注入
+	
+④AOP（面向切面）
+切面，切入点，前置通知、后置通知、环绕通知
+
+=======================
+分析功能：
+①
+	分析每个请求
+	得到的结果是我们需要处理多少种请求,其中每种请求对应一个Action方法
+②实现功能：
+	1.创建action，并定义出其中的方法
+	2.实现action，并创建出所用到的Service方法
+	3.实现Service，并创建出所用到的新的Dao方法
+	4.实现Dao方法
+	5.创建并完成JSP页面
+
+
+
+
+
+
+
+
+
+

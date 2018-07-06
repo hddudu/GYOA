@@ -1,0 +1,60 @@
+============
+服务端验证：
+
+Action中：记录错误信息
+	addFieldError();
+addFieldError("fieldName", "用户名或密码不正确!");
+addFieldError("fieldName", getText("login.error"));
+
+Jsp中：显示错误信息
+
+<s:fielderror fieldName="fieldName"/>
+<s:fielderror/>==>显示全部错误消息
+
+①记录所有登陆用户的session对象
+②用户登陆时通知又多了一个登陆用户
+③用户注销时也通知一下有一个用户下线了
+==》主要使用技术：application作用
+
+
+========================================================
+topPrivilegeList --> myPrivilegeList
+allPrivilegeList --> 
+
+要保证顺序合理： 还是选择先全部选出来，再对每一个判断权限是否显示
+
+
+=========================================================
+主页的网页结构：
+
+<frameset rows="100px,*">
+	<frame src="top.jsp">
+	<frameset cols="150px,*">
+		<frame name="left" src="left.jsp">
+		<frame name="right" src="right.jsp">
+	</frameset>
+</frameset>
+注意点：
+<a href="xxx.html" target="right">显示</a>
+这个target和上面的frame的name对应
+
+rows==>上下分模块
+cols==>左右分模块
+分成的项以逗号分割
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

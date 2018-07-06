@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping package="cn.gy.oa.domain">
+	<class name="Department" table="gy_department">
+		<id name="id">
+			<generator class="native"/>
+		</id>
+		<property name="deptName" type="java.lang.String">
+			<column name="dept_name"></column>
+		</property>
+		<property name="deptDesc" type="java.lang.String">
+			<column name="dept_desc"></column>
+		</property>
+		<property name="crtDate"  type="java.sql.Timestamp">
+			<column name="crtDate"></column>
+		</property>
+		<property name="updDate" type="java.sql.Timestamp">
+			<column name="updDate"></column>
+		</property> 
+		<!-- parent属性： 本类与本类 department的自关联关系：多对一（） :出现了懒加载的问题-->
+<!-- 		<class name="com.test.Student"table="student" lazy="true">  
+这种方式等价于  
+<class name="com.test.Student"table="student" proxy="com.test.Student">   -->
+		<many-to-one name="parent" class="Department" column="parentId" lazy="false"></many-to-one>
+<!-- 		<many-to-one name="parent" class="Department" column="parentId" lazy="false"></many-to-one> -->
+		<!--child属性就是departments属性： 本类与本类department的另一个自关联关系：一对多（） -->
+		<set name="departments" cascade="delete" lazy="false" order-by="id">
+			<key>
+				<column name="parentId"></column>
+			</key>
+			<one-to-many class="Department"/>
+		</set>
+		<!-- users属性 本类与user：一对多关系 -->
+		<set name="users">
+			<key>
+				<column name="departmentId"></column>
+			</key>
+			<one-to-many class="User"/>
+		</set>
+		
+		<!-- ctrUser属性： -->
+		<!-- 创建人-->
+		<one-to-one name="crtUser" class="cn.gy.oa.domain.User"/>
+		 
+		<!-- updUser属性： -->
+		<!-- 修改人 -->
+		<one-to-one name="updUser" class="cn.gy.oa.domain.User" />
+		
+	</class>
+</hibernate-mapping>

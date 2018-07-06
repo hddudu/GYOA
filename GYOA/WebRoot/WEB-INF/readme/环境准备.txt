@@ -1,0 +1,28 @@
+1:导包：
+	struts2包+struts2-spring-plugin-2.1.8.1.jar
+	
+	hibernate包：核心包+
+				required/*.jar+
+				jpa/hibernate-jpa-2.0-api-1.0.0.Final.jar
+				JDBC驱动包：mysql-connector-java-5.1.5-bin.jar
+				slf4j-log4j12-1.5.8.jar、log4j-1.2.15.jar，
+				c3p0-0.9.1.2.jar
+	Spring包：spring.jar
+			aspectj/*.jar（共2个）
+			cglib/cglib-nodep-2.1_3.jar
+			jakarta-commons/commons-logging.jar（1.1.1版）
+			commons-codec.jar，commons-lang.jar
+	工作流支持包：
+		jpbm.jar	
+		lib/*.jar，除了junit.jar、servlet-api.jar、cglib.jar
+		
+2：
+	Log4j的配置文件：
+		log4j.properties
+	2，Strtus2的配置文件：
+	Hibernate的配置文件：hibernate.cfg.xml
+	Spring的配置文件：applicationContext.xml
+	Jbpm的配置文件：jbpm.cfg.xml
+	
+	{Struts2_Home}\src\core\src\main\resources
+3：

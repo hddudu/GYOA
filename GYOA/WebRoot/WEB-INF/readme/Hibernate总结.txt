@@ -1,0 +1,49 @@
+1：
+	所有的关联关系都有
+	属性+关联类+关联字段
+	<many-to-one name="" class="" column=""></many-to-one>
+	
+	<set name="">
+		<key></key>
+		<one-to-many/>
+	</set>	
+
+2
+部门：一对多
+<!-- users属性 本类与user：一对多关系 -->
+		<set name="users">
+			<key>
+				<column name="abcd"></column>
+			</key>
+			<one-to-many class="User"/>
+		</set>
+用户：多对一
+<many-to-one name="department" class="Department" column="abcd">
+</many-to-one>		
+其中key的column和多对一中的column值必须一样才好！
+
+一般做法：
+	在多的一方，用属性名+Id后缀完成 多对一与一对多的成对关系！！！
+	然后拷贝到对方1
+2.1:
+	<set name="roles" table="gy_user_role">
+			<key>
+				<column name="id"></column>
+			</key><!--集合外键：当前表的外键-->
+			<many-to-many class="Role" column="id" />
+		</set>
+		多对多的key写成本对象的名+Id后缀
+		manytomany中column写成关联对象的名+Id后缀
+3：
+	Hibernate：
+	1：写注释：
+		格式： ？的属性，表达的是本对象与？ 的？关系
+	2：拷模板：
+	
+	3：填空：
+		name：属性名
+		class：关联的实体类型
+		column属性：
+			一般可以写成属性名加Id后缀
+			多对一：多的name属性加上Id
+			一对多：复制多对一的column属性过来
