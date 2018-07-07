@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/tx
+           http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<!-- 自动扫描与装配bean -->
+	<context:component-scan base-package="cn.gy.oa"/>
+	
+	<!-- 加载外部的配置文件 -->
+	<context:property-placeholder location="classpath:jdbc.properties" />
+	
+	<!-- 配置数据库连接池 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<!-- 基本信息 -->
+		<property name="jdbcUrl" value="${jdbcUrl}"></property>
+		<property name="driverClass" value="${driverClass}"></property>
+		<property name="user" value="${username}"></property>
+		<property name="password" value="${password}"></property>
+		<!-- 其他配置 -->
+		<!-- 初始化连接啊 、 取值应在minPoolSize和maxPoolSize之间啊 -->
+		<property name="initialPoolSize" value="3"></property>
+		<property name="minPoolSize" value="3"></property>
+		<property name="maxPoolSize" value="5"></property>
+		<!-- 连接被耗尽的时候一次性获取的连接数 -->
+		<property name="acquireIncrement" value="3"></property>
+		<property name="maxStatements" value="8"></property>
+		<!-- maxStatementsPerConnection定义了连接池内单个连接所拥有的最大缓存statements数。Default: 0 -->
+		<property name="maxStatementsPerConnection" value="5"></property>
+		<!--最大空闲时间,1800秒内未使用则连接被丢弃。若为0则永不丢弃。Default: 0 -->
+		<property name="maxIdleTime" value="1800"></property>
+	</bean>
+	
+	<!--  -->
+	
+	
+	<!-- 配置sessionfactory -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
+		<!-- <property name="mappingLocations">
+			<list>
+				<value>classpath:cn/gy/oa/domain/*.hbm.xml</value>
+			</list>
+		</property> -->
+	</bean>
+	<!-- 声明式事务管理(采用基于注解的方式)-->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 基于注解 -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+</beans>
